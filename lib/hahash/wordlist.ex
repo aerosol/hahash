@@ -1,4 +1,11 @@
 defmodule Hahash.Wordlist do
+  @moduledoc """
+  Words. 
+
+  Source material: https://github.com/imsky/wordlists
+
+  Raw files are stored in `priv/` directory.
+  """
   defmacro __using__(_opts) do
     quote do
       require Hahash.Wordlist
@@ -22,12 +29,21 @@ defmodule Hahash.Wordlist do
         acc ++ words
       end)
 
+    @doc """
+    Returns the size of #{category} collection.
+    Can be used in guards.
+    """
     defmacro unquote(:"#{category}_size")() do
-      quote bind_quoted: [words: unquote(words)] do
-        length(words)
+      quote bind_quoted: [size: unquote(length(words))] do
+        size
       end
     end
 
+    @doc """
+    Given an index, greater or equal to 1,
+    and less or equal than #{length(words)},
+    returns a word from '#{category}' category.
+    """
     for {word, index} <- Enum.with_index(words, 1) do
       def unquote(String.to_atom(category))(unquote(index)), do: unquote(word)
     end
