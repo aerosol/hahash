@@ -7,7 +7,7 @@ defmodule Hahash.Wordlist do
   end
 
   for category <- ["verbs", "adjectives", "nouns"] do
-    path = Path.join([Mix.Project.deps_paths().wordlists, category])
+    path = Path.join([Application.app_dir(:hahash), "priv", "wordlists", category])
     {:ok, files} = Path.Wildcard.list_dir(path)
 
     words =

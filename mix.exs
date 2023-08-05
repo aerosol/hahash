@@ -7,21 +7,27 @@ defmodule Hahash.MixProject do
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
+      package: package(),
       deps: deps()
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
-  def application do
+  def application() do
     [
       extra_applications: [:logger]
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
-  defp deps do
+  defp deps() do
+    []
+  end
+
+  def package() do
     [
-      {:wordlists, github: "imsky/wordlists", compile: false, app: false}
+      name: "hahash",
+      description: "Hash terms into cute names",
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/aerosol/hahash"}
     ]
   end
 end
