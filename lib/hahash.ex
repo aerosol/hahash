@@ -16,10 +16,13 @@ defmodule Hahash do
   verb, adjective and a noun, separated with hyphen.
   """
   def name(term) do
-    verb_index = :erlang.phash2(term, verbs_size())
-    adjective_index = :erlang.phash2(term, adjectives_size())
-    noun_index = :erlang.phash2(term, nouns_size())
-
-    "#{verbs(verb_index)}-#{adjectives(adjective_index)}-#{nouns(noun_index)}"
+    Enum.join(
+      [
+        term |> :erlang.phash2(verbs_size()) |> verbs(),
+        term |> :erlang.phash2(adjectives_size()) |> adjectives(),
+        term |> :erlang.phash2(nouns_size()) |> nouns()
+      ],
+      "-"
+    )
   end
 end
