@@ -1,0 +1,3 @@
+%{
+  "wordlists": {:git, "https://github.com/imsky/wordlists.git", "3aab59e6844fe899a3fcc3949859efbc74977510", []},
+}
