@@ -1,7 +1,7 @@
 defmodule Hahash do
   @moduledoc """
   Hash any term into a cute name.
-  There is no guarantees all will end up cute.
+  There is no guarantees all will end up cute nor very unique.
 
   Just in case, don't use it for anything very serious.
   I'm happy to remove words, if you feel like curating the list.

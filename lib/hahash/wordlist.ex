@@ -40,11 +40,11 @@ defmodule Hahash.Wordlist do
     end
 
     @doc """
-    Given an index, greater or equal to 1,
-    and less or equal than #{length(words)},
+    Given an index, greater or equal to 0,
+    and less or equal than #{length(words) - 1},
     returns a word from '#{category}' category.
     """
-    for {word, index} <- Enum.with_index(words, 1) do
+    for {word, index} <- Enum.with_index(words) do
       def unquote(String.to_atom(category))(unquote(index)), do: unquote(word)
     end
   end

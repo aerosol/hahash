@@ -6,7 +6,7 @@ defmodule Hahash.MixProject do
       app: :hahash,
       name: "Hahash",
       source_url: "https://github.com/aerosol/hahash",
-      version: "0.1.0",
+      version: "0.2.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       package: package(),
